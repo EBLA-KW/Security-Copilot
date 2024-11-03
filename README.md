@@ -24,6 +24,11 @@ This plugin connects **BloxOne** with Copilot, BloxOne DDI provides a cloud-mana
 
 [View VirusTotal Plugin README](./Infoblox)
 
+### 5. Taegis (Secureworks) Plugin
+This plugin connects **Taegis** with Copilot, The Taegis platform uses advanced analytics and machine learning to discover stealthy threats and automatically prioritize the most serious threats.
+
+[View VirusTotal Plugin README](./Taegis)
+
 ## Setup and Usage
 
 Each plugin has its own setup and configuration requirements, detailed in its respective README file. Be sure to configure API credentials for each platform in the provided configuration files.
