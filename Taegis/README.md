@@ -8,13 +8,13 @@ This repository contains OpenAPI specifications for interacting with the **Taegi
 - **Endpoint**: `GET /api/v2/vulnerabilities/{id}`
 - **Description**: Retrieves detailed information about a specific vulnerability by its ID.
 - **Usage**: Use this endpoint to get full vulnerability details for analysis and management.
-- **YAML Specification**: [taegis_vulnerability.yaml](./taegis_vulnerability.yaml)
+- **YAML Specification**: [taegis_vulnerability.yaml](./Vulnerability.yaml)
 
 ### 2. Vulnerability Group List
 - **Endpoint**: `GET /api/v2/vulnerability-groups`
 - **Description**: Retrieves a paginated list of vulnerability groups with optional filtering and sorting.
 - **Usage**: This endpoint provides an overview of vulnerability groups, allowing prioritization and grouping based on asset, severity, and more.
-- **YAML Specification**: [taegis_vulnerability_group_list.yaml](./taegis_vulnerability_group_list.yaml)
+- **YAML Specification**: [taegis_vulnerability_group_list.yaml](./Vulnerability_group_list.yaml)
 
 ## Requirements
 
@@ -25,7 +25,7 @@ This repository contains OpenAPI specifications for interacting with the **Taegi
 
 1. **Clone this repository**:
    ```bash
-   git clone https://github.com/yourusername/taegis-vulnerability-api.git
+   git clone https://github.com/EBLA-KW/taegis-vulnerability-api.git
    cd taegis-vulnerability-api
    ```
 
