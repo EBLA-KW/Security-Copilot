@@ -8,6 +8,8 @@ This repository contains a custom plugin to integrate **FortiAnalyzer** with **C
 - Fetch threat intelligence and IOCs (Indicators of Compromise)
 - Enable automated responses to FortiAnalyzer security events in Copilot
 
+For more info visit: https://fndn.fortinet.net/index.php?/fortiapi/175-fortianalyzer/
+
 ## Requirements
 
 - FortiAnalyzer with API access enabled
