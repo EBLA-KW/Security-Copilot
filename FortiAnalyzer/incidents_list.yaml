@@ -1,0 +1,152 @@
+openapi: 3.0.0
+
+info:
+  title: FortiAnalyzer Incident Management API
+  description: Retrieve a list of incidents from FortiAnalyzer
+  version: "v1"
+
+servers:
+  - url: https://<your-fortianalyzer-url>/api/v2
+
+paths:
+  /incidentmgmt/incidents:
+    post:
+      operationId: getIncidentsList
+      summary: Retrieve a list of incidents from FortiAnalyzer
+      parameters:
+        - in: query
+          name: id
+          schema:
+            type: string
+          required: true
+          description: An identifier established by the client.
+        - in: query
+          name: jsonrpc
+          schema:
+            type: string
+            enum: ["2.0"]
+          required: true
+          description: JSON-RPC protocol version.
+        - in: query
+          name: method
+          schema:
+            type: string
+            enum: ["incidentmgmt.incidents.get"]
+          required: true
+          description: The method name to invoke.
+        - in: query
+          name: params
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                apiver:
+                  type: number
+                  description: Current API version.
+                detail-level:
+                  type: string
+                  enum: [basic, standard, extended]
+                  description: The detail level of return data.
+                filter:
+                  type: string
+                  description: The query filter.
+                incids:
+                  type: array
+                  items:
+                    type: string
+                    example: "IN12345678"
+                  description: List of specific incident IDs to retrieve.
+                limit:
+                  type: number
+                  default: 50
+                  minimum: 1
+                  maximum: 2000
+                  description: The maximum number of records to retrieve.
+                offset:
+                  type: number
+                  default: 0
+                  minimum: 0
+                  description: The offset for record retrieval.
+                sort-by:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      field:
+                        type: string
+                        description: Sortable field name.
+                      order:
+                        type: string
+                        enum: [ASC, DESC]
+                        default: ASC
+                        description: Sorting order, ASC or DESC.
+                url:
+                  type: string
+                  example: "/incidentmgmt/adom/root/incidents"
+                  description: Resource URI for the request.
+          required: true
+          description: Parameters for the incident list request.
+        - in: header
+          name: session
+          schema:
+            type: string
+          required: true
+          description: Active session cookie for FortiAnalyzer.
+      responses:
+        "200":
+          description: Successful retrieval of incidents
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/IncidentListResponse"
+
+components:
+  schemas:
+    IncidentListResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Identifier established by the client.
+        jsonrpc:
+          type: string
+          enum: ["2.0"]
+          description: JSON-RPC protocol version.
+        result:
+          type: object
+          properties:
+            description:
+              type: string
+              description: Response details for the incidents request.
+            data:
+              type: array
+              items:
+                type: object
+                properties:
+                  incidentId:
+                    type: string
+                    description: Incident ID.
+                  severity:
+                    type: string
+                    description: Severity of the incident.
+                  status:
+                    type: string
+                    description: Current status of the incident.
+                  description:
+                    type: string
+                    description: Incident description.
+                  startTime:
+                    type: string
+                    format: date-time
+                    description: Start time of the incident.
+                  endTime:
+                    type: string
+                    format: date-time
+                    description: End time of the incident.
+            total-count:
+              type: number
+              description: Total count of incidents.
+            offset:
+              type: number
+              description: Offset for the result set.

@@ -1,0 +1,17 @@
+Descriptor:
+  Name: Info-Blox
+  DisplayName: Info-Blox
+  Description: Get detailed information from Info-Blox.
+
+  SupportedAuthTypes:
+    - ApiKey
+  Authorization:
+    Type: APIKey
+    Key: x-apikey
+    Location: Header
+    AuthScheme: ''
+
+SkillGroups:
+  - Format: API
+    Settings:
+      OpenApiSpecUrl: 

@@ -1,0 +1,121 @@
+openapi: 3.0.0
+
+info:
+  title: FortiAnalyzer Attachments Management API
+  description: Retrieve a list of attachments for incidents from FortiAnalyzer
+  version: "v1"
+
+servers:
+  - url: https://<your-fortianalyzer-url>/api/v2
+
+paths:
+  /incidentmgmt/attachments:
+    post:
+      operationId: getAttachmentsList
+      summary: Retrieve a list of attachments related to incidents from FortiAnalyzer
+      parameters:
+        - in: query
+          name: id
+          schema:
+            type: string
+          required: true
+          description: An identifier established by the client.
+        - in: query
+          name: jsonrpc
+          schema:
+            type: string
+            enum: ["2.0"]
+          required: true
+          description: JSON-RPC protocol version.
+        - in: query
+          name: method
+          schema:
+            type: string
+            enum: ["incidentmgmt.attachments.get"]
+          required: true
+          description: The method name to invoke.
+        - in: query
+          name: params
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                apiver:
+                  type: number
+                  description: Current API version.
+                attachtype:
+                  type: string
+                  description: The attachment type.
+                incid:
+                  type: string
+                  example: "IN12345678"
+                  description: The incident ID.
+                limit:
+                  type: number
+                  default: 50
+                  minimum: 1
+                  maximum: 2000
+                  description: Maximum number of records to retrieve.
+                offset:
+                  type: number
+                  default: 0
+                  minimum: 0
+                  description: Offset for record retrieval.
+                url:
+                  type: string
+                  example: "/incidentmgmt/adom/root/attachments"
+                  description: Resource URI for the request.
+          required: true
+          description: Parameters for the attachments list request.
+        - in: header
+          name: session
+          schema:
+            type: string
+          required: true
+          description: Active session cookie for FortiAnalyzer.
+      responses:
+        "200":
+          description: Successful retrieval of attachments
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AttachmentsListResponse"
+        "405":
+          description: Invalid input
+
+components:
+  schemas:
+    AttachmentsListResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Identifier established by the client.
+        jsonrpc:
+          type: string
+          enum: ["2.0"]
+          description: JSON-RPC protocol version.
+        result:
+          type: object
+          properties:
+            description:
+              type: string
+              description: Response details for the attachments request.
+            data:
+              type: array
+              items:
+                type: object
+                properties:
+                  attachmentDescription:
+                    type: string
+                    description: Details of the attachment entry.
+            status:
+              type: object
+              properties:
+                code:
+                  type: number
+                  description: Status code for the request.
+                message:
+                  type: string
+                  description: Status message for the request.

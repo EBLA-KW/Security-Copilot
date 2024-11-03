@@ -1,0 +1,16 @@
+Descriptor:
+  Name: FortiAnalyzer
+  DisplayName: FortiAnalyzer
+  Description: Get detailed information from FortiAnalyzer.
+  SupportedAuthTypes:
+    - ApiKey
+  Authorization:
+    Type: APIKey
+    Key: x-apikey
+    Location: Header
+    AuthScheme: ''
+
+SkillGroups:
+  - Format: API
+    Settings:
+      OpenApiSpecUrl: 

@@ -1,0 +1,124 @@
+openapi: 3.0.0
+
+info:
+  title: FortiAnalyzer FortiView API
+  description: Retrieve data from FortiView in FortiAnalyzer
+  version: "v1"
+
+servers:
+  - url: https://<your-fortianalyzer-url>/api/v2
+
+paths:
+  /fortiview/{view-name}/run/{tid}:
+    post:
+      operationId: runFortiViewTask
+      summary: Get the FortiView request result with the task ID.
+      parameters:
+        - in: query
+          name: id
+          schema:
+            type: string
+          required: true
+          description: An identifier established by the client.
+        - in: query
+          name: jsonrpc
+          schema:
+            type: string
+            enum: ["2.0"]
+          required: true
+          description: JSON-RPC protocol version.
+        - in: query
+          name: method
+          schema:
+            type: string
+            enum: ["fortiview.view-name.run.tid.get"]
+          required: true
+          description: The method name to invoke.
+        - in: query
+          name: params
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                apiver:
+                  type: number
+                  description: Current API version.
+                url:
+                  type: string
+                  example: "/fortiview/adom/root/top-threats/run/{tid}"
+                  description: Resource path for the FortiView task.
+          required: true
+          description: Structure holding parameter values.
+        - in: header
+          name: session
+          schema:
+            type: string
+          required: true
+          description: Active session cookie for FortiAnalyzer.
+      responses:
+        "200":
+          description: Successful retrieval of FortiView data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FortiViewResponse"
+
+components:
+  schemas:
+    FortiViewResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Identifier established by the client.
+        jsonrpc:
+          type: string
+          enum: ["2.0"]
+          description: JSON-RPC protocol version.
+        result:
+          type: object
+          properties:
+            description:
+              type: string
+              description: Structured value for FortiView fetch method.
+            data:
+              type: array
+              items:
+                type: object
+                properties:
+                  field:
+                    type: string
+                    description: Result field.
+                  value:
+                    type: string
+                    description: Result value.
+            db_start_time:
+              type: number
+              description: Start time of the database.
+            masked-fields:
+              type: array
+              items:
+                type: string
+                description: List of masked fields.
+            max-value:
+              type: object
+              description: Max values for certain fields.
+            percentage:
+              type: number
+              description: Percentage of FortiView data prepared.
+            return-lines:
+              type: number
+              description: Number of returned lines.
+            status:
+              type: object
+              properties:
+                code:
+                  type: number
+                  description: Status code.
+                message:
+                  type: string
+                  description: Status description.
+            total-count-all:
+              type: number
+              description: Total count of results for the task.

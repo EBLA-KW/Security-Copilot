@@ -1,0 +1,147 @@
+openapi: 3.0.0
+
+info:
+  title: Infoblox BloxOne DNS Data API
+  description: Retrieve a DNS resource record using BloxOne DNS Data API
+  version: "v1"
+
+servers:
+  - url: https://csp.infoblox.com/api/ddi/v1
+
+paths:
+  /dns/record/{id}:
+    get:
+      operationId: getDNSRecord
+      summary: Retrieve a DNS resource record by its ID from Infoblox BloxOne
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: An application-specific resource identity of the DNS record.
+        - in: query
+          name: _fields
+          schema:
+            type: string
+          required: false
+          description: Comma-separated list of JSON tags to be included in the response.
+      responses:
+        "200":
+          description: Successful retrieval of DNS record
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DNSRecordResponse"
+
+components:
+  schemas:
+    DNSRecordResponse:
+      type: object
+      properties:
+        result:
+          type: object
+          properties:
+            absolute_name_spec:
+              type: string
+              description: Absolute name specification.
+            absolute_zone_name:
+              type: string
+              description: Absolute zone name.
+            comment:
+              type: string
+              description: Comment associated with the DNS record.
+            compartment_id:
+              type: string
+              description: ID of the compartment.
+            created_at:
+              type: string
+              format: date-time
+              description: Creation timestamp.
+            delegation:
+              type: string
+              description: Delegation information for the DNS record.
+            disabled:
+              type: boolean
+              description: Status of the DNS record.
+            dns_absolute_name_spec:
+              type: string
+              description: DNS absolute name specification.
+            dns_absolute_zone_name:
+              type: string
+              description: DNS absolute zone name.
+            dns_name_in_zone:
+              type: string
+              description: DNS name within the zone.
+            dns_rdata:
+              type: string
+              description: DNS rdata.
+            id:
+              type: string
+              description: Unique identifier of the DNS record.
+            inheritance_sources:
+              type: object
+              properties:
+                ttl:
+                  type: object
+                  properties:
+                    action:
+                      type: string
+                      description: TTL action.
+                    display_name:
+                      type: string
+                      description: Display name for TTL.
+                    source:
+                      type: string
+                      description: TTL source.
+                    value:
+                      type: integer
+                      description: TTL value.
+            ipam_host:
+              type: string
+              description: IPAM host.
+            name_in_zone:
+              type: string
+              description: Name within the zone.
+            nios_metadata:
+              type: object
+              description: Metadata from NIOS.
+            options:
+              type: object
+              description: Additional options.
+            provider_metadata:
+              type: object
+              description: Provider metadata.
+            rdata:
+              type: object
+              description: Record data.
+            source:
+              type: array
+              items:
+                type: string
+              description: Source of the DNS record.
+            subtype:
+              type: string
+              description: Record subtype.
+            tags:
+              type: object
+              description: Tags associated with the DNS record.
+            ttl:
+              type: integer
+              description: Time-to-live for the DNS record.
+            type:
+              type: string
+              description: Type of DNS record.
+            updated_at:
+              type: string
+              format: date-time
+              description: Last update timestamp.
+            view:
+              type: string
+              description: DNS view.
+            view_name:
+              type: string
+              description: Name of the DNS view.
+            zone:
+              type: string
+              description: Zone associated with the DNS record.

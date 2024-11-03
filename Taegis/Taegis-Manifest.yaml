@@ -1,0 +1,17 @@
+Descriptor:
+  Name: Taegis
+  DisplayName: Taegis
+  Description: Get detailed information from Taegis.
+
+  SupportedAuthTypes:
+    - ApiKey
+  Authorization:
+    Type: APIKey
+    Key: x-apikey
+    Location: Header
+    AuthScheme: ''
+
+SkillGroups:
+  - Format: API
+    Settings:
+      OpenApiSpecUrl: 
