@@ -22,6 +22,8 @@ This repository contains OpenAPI specifications for interacting with the **Infob
 - **Usage**: Use this endpoint to update the serial number of an SOA record in an authoritative zone.
 - **YAML Specification**: [infoblox_soa_serial_increment.yaml](./SOA_serial_increment.yaml)
 
+For more info please visit: https://docs.infoblox.com/space/BloxOneDDI/186745633/Universal+DDI+API+Guide
+
 ## Requirements
 
 - **Infoblox BloxOne** account with API access
