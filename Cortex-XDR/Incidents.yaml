@@ -64,7 +64,7 @@ components:
       type: apiKey
       in: header
       name: x-api-key  # This is for the API key
-    xdrAuthId:
+    authid:
       type: apiKey
       in: header
       name: 54  # This is for the API key ID
