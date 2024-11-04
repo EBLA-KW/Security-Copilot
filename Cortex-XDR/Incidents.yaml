@@ -13,6 +13,12 @@ paths:
       description: Retrieve a list of incidents from Cortex XDR.
       operationId: getAllIncidents
       parameters:
+        - in: header
+          name: 54
+          schema:
+            type: string
+          required: true
+          description: Default is 54
         - name: page
           in: query
           required: false
@@ -58,17 +64,3 @@ paths:
         '500':
           description: Internal server error.
 
-components:
-  securitySchemes:
-    apiKeyAuth:
-      type: apiKey
-      in: header
-      name: x-api-key  # This is for the API key
-    authid:
-      type: apiKey
-      in: header
-      name: 54  # This is for the API key ID
-
-security:
-  - apiKeyAuth: []
-  - xdrAuthId: []
