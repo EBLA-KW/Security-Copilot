@@ -6,7 +6,7 @@ info:
   version: "v1"
 
 servers:
-  - url: https://faz.csc.gov.kw/jsonrpc/
+  - url: https://faz.<FQDN>.gov.kw/jsonrpc/
 
 paths:
   /incidentmgmt/incidents:
