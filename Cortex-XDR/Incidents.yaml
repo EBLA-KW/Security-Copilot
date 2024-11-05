@@ -17,7 +17,7 @@ paths:
           name: 54
           schema:
             type: string
-          required: true
+          required: false
           description: Default is 
         - name: page
           in: query
