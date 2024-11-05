@@ -1,0 +1,16 @@
+Descriptor:
+  Name: Cortex XDR
+  DisplayName: Cortex XDR 
+  Description: Plugin for retrieving incidents from Cortex XDR using API key authentication.
+  SupportedAuthTypes:
+    - ApiKey
+  Authorization:
+    Type: APIKey
+    Key: Authorization
+    Location: Header
+    AuthScheme: ''
+
+SkillGroups:
+  - Format: API
+    Settings:
+      OpenApiSpecUrl: https://raw.githubusercontent.com/EBLA-KW/Security-Copilot/refs/heads/main/Cortex-XDR/Incidents.yaml
