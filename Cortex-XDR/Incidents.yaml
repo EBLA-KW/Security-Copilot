@@ -37,6 +37,8 @@ paths:
           schema:
             type: string
             example: "desc"
+      requestBody:
+          content: {"request_data":{}}
       responses:
         '200':
           description: Successful retrieval of incidents.
