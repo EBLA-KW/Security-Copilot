@@ -13,4 +13,4 @@ Descriptor:
 SkillGroups:
   - Format: API
     Settings:
-      OpenApiSpecUrl: 
+      OpenApiSpecUrl: https://raw.githubusercontent.com/EBLA-KW/Security-Copilot/refs/heads/main/FortiAnalyzer/incidents_list.yaml
