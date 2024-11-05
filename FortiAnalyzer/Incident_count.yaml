@@ -1,0 +1,102 @@
+openapi: 3.0.0
+
+info:
+  title: FortiAnalyzer Incident Management API
+  description: Retrieve a count of incidents using the FortiAnalyzer Incident Management API
+  version: "v1"
+
+servers:
+  - url: https://<your-fortianalyzer-url>/api/v2
+
+paths:
+  /incidentmgmt/incidents/count:
+    post:
+      operationId: countIncidents
+      summary: Retrieve the count of incidents
+      parameters:
+        - in: query
+          name: id
+          schema:
+            type: string
+          required: true
+          description: An identifier established by the client.
+        - in: query
+          name: jsonrpc
+          schema:
+            type: string
+            enum: ["2.0"]
+          required: true
+          description: JSON-RPC protocol version.
+        - in: query
+          name: method
+          schema:
+            type: string
+            enum: ["incidentmgmt.incidents.count.get"]
+          required: true
+          description: The method name to invoke.
+        - in: query
+          name: params
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                apiver:
+                  type: number
+                  description: Current API version.
+                filter:
+                  type: string
+                  description: Query filter for incidents.
+                incids:
+                  type: array
+                  items:
+                    type: string
+                    example: "IN12345678"
+                  description: List of specific incident IDs for counting.
+                url:
+                  type: string
+                  example: "/incidentmgmt/adom/root/incidents/count"
+                  description: Resource URI for the request.
+          required: true
+          description: Parameters for the incident count request.
+        - in: header
+          name: session
+          schema:
+            type: string
+          required: true
+          description: Active session cookie for FortiAnalyzer.
+      responses:
+        "200":
+          description: Successful retrieval of incident count
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/IncidentCountResponse"
+
+components:
+  schemas:
+    IncidentCountResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Identifier established by the client.
+        jsonrpc:
+          type: string
+          enum: ["2.0"]
+          description: JSON-RPC protocol version.
+        result:
+          type: object
+          properties:
+            count:
+              type: integer
+              description: Total number of incidents matching the query.
+            status:
+              type: object
+              properties:
+                code:
+                  type: number
+                  description: Status code of the request.
+                message:
+                  type: string
+                  description: Status message for the request.
