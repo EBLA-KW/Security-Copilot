@@ -4,7 +4,7 @@ info:
   description: Retrieve incidents from Cortex XDR with simplified parameters.
   version: "1.0.0"
 servers:
-  - url: https://FQDN.paloaltonetworks.com
+  - url: https://api-gpf.xdr.eu.paloaltonetworks.com
 
 paths:
   /public_api/v1/incidents/get_incidents/:
@@ -76,5 +76,5 @@ components:
       name: x-xdr-auth-id  # This is for the API key ID
 
 security:
-  - apiKeyAuth: []
+  - ApiKeyAuth: []
   - xdrAuthId: []
