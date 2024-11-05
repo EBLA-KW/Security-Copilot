@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Cortex XDR API
+  title: Cortex XDR
   description: Retrieve incidents from Cortex XDR with simplified parameters.
   version: "1.0.0"
 servers:
@@ -14,7 +14,7 @@ paths:
       operationId: getAllIncidents
       parameters:
         - in: header
-          name: <Key-ID>
+          name: 54
           schema:
             type: string
           required: true
