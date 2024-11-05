@@ -66,10 +66,10 @@ paths:
 
 components:
   securitySchemes:
-    apiKeyAuth:
+    ApiKeyAuth:
       type: apiKey
       in: header
-      name: x-api-key  # This is for the API key
+      name: Authorization  # This is for the API key
     xdrAuthId:
       type: apiKey
       in: header
