@@ -14,7 +14,7 @@ paths:
       operationId: getAllIncidents
       parameters:
         - in: header
-          name: 54
+          name: 55
           schema:
             type: string
           required: false
