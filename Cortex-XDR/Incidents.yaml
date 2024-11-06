@@ -13,6 +13,12 @@ paths:
       description: Retrieve a list of incidents from Cortex XDR.
       operationId: getAllIncidents
       parameters:
+        - in: header
+          name: x-xdr-auth-id
+          schema:
+            type: string
+          required: true
+          description: Default is 55
         - name: page
           in: query
           required: false
