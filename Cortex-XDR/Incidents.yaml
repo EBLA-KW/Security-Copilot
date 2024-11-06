@@ -14,11 +14,11 @@ paths:
       operationId: getAllIncidents
       parameters:
         - in: header
-          name: 55
+          name: x-xdr-auth-id
           schema:
             type: string
-          required: false
-          description: Default is 
+          required: true
+          description: Default is 55
         - name: page
           in: query
           required: false
