@@ -4,7 +4,7 @@ info:
   description: Retrieve incidents from Cortex XDR with simplified parameters.
   version: "1.0.0"
 servers:
-  - url: https://api-gpf.xdr.eu.paloaltonetworks.com
+  - url: https://api-<FQDN>.xdr.eu.paloaltonetworks.com
 
 paths:
   /public_api/v1/incidents/get_incidents/:
