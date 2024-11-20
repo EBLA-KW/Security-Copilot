@@ -1,0 +1,24 @@
+Descriptor:
+  Name: Cortex XDR
+  DisplayName: Cortex XDR
+  Description: Plugin for retrieving incidents from Cortex XDR using API key authentication.
+  SupportedAuthTypes:
+    - ApiKey
+  Authorization:
+    Type: APIKey
+    Key: Authorization
+    Location: Header
+    AuthScheme: ''
+  Settings:
+  - Description: FQDN required to access the Cortex XDR API
+    HintText: e.g. gpf
+    Label: FQDN parameter for server URL
+    Name: FQDN
+    Required: true
+    SettingType: String
+ 
+SkillGroups:
+  - Format: API
+    Settings:
+      EndpointUrlSettingName: FQDN
+      OpenApiSpecUrl:
