@@ -21,4 +21,4 @@ SkillGroups:
   - Format: API
     Settings:
       EndpointUrlSettingName: FQDN
-      OpenApiSpecUrl:
+      OpenApiSpecUrl: https://raw.githubusercontent.com/EBLA-KW/Security-Copilot/refs/heads/main/Cortex-XDR/BTeam/Cortex.yaml
