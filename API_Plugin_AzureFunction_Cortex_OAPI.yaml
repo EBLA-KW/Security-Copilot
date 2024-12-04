@@ -3,7 +3,7 @@ openapi: 3.0.0
 info:
     title: Fetch details from Cortex
     description: The skills in this plugin will get different information from Cortex
-    version: "v1"
+    version: "1.0.0"
 
 # This should point to the Azure Function URL
 servers:
