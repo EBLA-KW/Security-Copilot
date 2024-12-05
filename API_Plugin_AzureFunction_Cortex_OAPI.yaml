@@ -10,8 +10,8 @@ servers:
     - url: "https://ebla-cortex-omar.azurewebsites.net/api/"
 
 paths:
-    /cortex_get_incidents:
-        post:
+    /cortex_xdr_sami?code=k-5Cb3ZIeDcSk22ql06CrBFa1Xsbj4FYQA_Zn0v9Yv1hAzFulHAuXw%3D%3D&op=GetIncidents&data=1:
+        get:
             operationId: GetIncidents
             description: Get list of incidents
             responses:
