@@ -6,7 +6,7 @@
 - Omar Sabri, Security Engineer  
 
 **Company:**  
-EBLA Kuwait  ![Company Logo]([https://example.com/path/to/logo.png](https://www.eblacorp.com/wp-content/uploads/ebla_logo.jpg))
+EBLA Kuwait  ![Company Logo]([[https://example.com/path/to/logo.png](https://www.eblacorp.com/wp-content/uploads/ebla_logo.jpg](https://www.qatar.qa/media/2020/12/EBLA-Logo-2018.png)))
 
 ---
 
