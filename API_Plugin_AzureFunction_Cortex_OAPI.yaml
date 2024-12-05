@@ -10,23 +10,10 @@ servers:
     - url: "https://ebla-cortex-omar.azurewebsites.net/api/"
 
 paths:
-    /cortex_get_incidents?op=GetIncidents&data=1:
+    /cortex_get_incidents:
         post:
             operationId: GetIncidents
             description: Get list of incidents
-            parameters:
-                - in: query
-                  name: op
-                  schema:
-                      type: string
-                  required: true
-                  description: Operation name
-                - in: query
-                  name: data
-                  schema:
-                      type: string
-                  required: true
-                  description: Filter parameters
             responses:
                 "200":
                     description: OK
