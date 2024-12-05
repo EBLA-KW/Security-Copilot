@@ -1,20 +1,26 @@
 openapi: 3.0.0
- 
+
 info:
     title: Fetch details from Cortex
     description: The skills in this plugin will get different information from Cortex
-    version: "1.0.0"
- 
- 
+ version: "v1"
+
+# This should point to the Azure Function URL
 servers:
-    - url: https://kia-cortex-xdr.azurewebsites.net/api/
- 
+    - url: https://ebla-cortex-omar.azurewebsites.net/api/
+
 paths:
-    /cortex_get_incidents?op=GetIncidents:
+    /cortex_get_incidents?op=GetIncidents&data=1:
         post:
             operationId: GetIncidents
             description: Get list of incidents
             parameters:
+                - in: query
+                  name: op
+                  schema:
+                      type: string
+                  required: true
+                  description: Operation name
                 - in: query
                   name: data
                   schema:
@@ -26,3 +32,14 @@ paths:
                     description: OK
                     content:
                         application/json:
+                type: object
+                properties:
+                  incident_id:
+                    type: string
+                  severity:
+                    type: string
+                  status:
+                    type: string
+                  creation_time:
+                    type: string
+                    format: date-time
