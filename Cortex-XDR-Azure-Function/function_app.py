@@ -1,5 +1,5 @@
 # Project Name: Cortex XDR 
-# Author: Hassan Al Faisal "Software Developer" | Mohamed Sami Saoud "Technical Lead" | Omar Sabri "Security Engineer"
+# Author: Mohamed Sami Saoud "Technical Lead" | Omar Sabri "Security Engineer" | Hassan Al Faisal "Software Developer"
 # Company: EBLA Kuwait 
 # Date Created: Dec. 4 2024
 # Last Updated: Dec. 5 2024
