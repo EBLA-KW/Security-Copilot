@@ -1,0 +1,18 @@
+Descriptor:
+  Name: Cortex XDR
+  DisplayName: Fetch details from Cortex
+  Description: The skills in this plugin will get different information from Cortex
+  DescriptionForModel: The skills in this plugin will get information like Cortex incidents
+
+  SupportedAuthTypes:
+    - ApiKey
+  Authorization:
+    Type: APIKey
+    Key: x-functions-key
+    Location: Header
+    AuthScheme: ''
+
+SkillGroups:
+  - Format: API
+    Settings:
+      OpenApiSpecUrl: https://raw.githubusercontent.com/EBLA-KW/Security-Copilot/refs/heads/main/API_Plugin_AzureFunction_Cortex_OAPI.yaml
