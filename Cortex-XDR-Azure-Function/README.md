@@ -1,9 +1,9 @@
 # Cortex API Integration with Custom Security Copilot Plugin  
 
 **Author:**  
-- Hassan Al Faisal, Software Developer  
 - Mohamed Sami Saoud, Technical Lead  
-- Omar Sabri, Security Engineer  
+- Omar Sabri, Security Engineer
+- Hassan Al Faisal, Software Developer    
 
 **Company:**  
 EBLA Kuwait  
