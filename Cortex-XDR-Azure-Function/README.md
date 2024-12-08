@@ -2,7 +2,7 @@
 
 **Author:**  
 - Mohamed Sami Saoud, Technical Lead  
-- Omar Sabri, Security Engineer
+- Omar Hasan Sabri, Security Engineer
 - Hassan Al Faisal, Software Developer    
 
 **Company:**  
