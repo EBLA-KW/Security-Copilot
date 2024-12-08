@@ -15,4 +15,4 @@ Descriptor:
 SkillGroups:
   - Format: API
     Settings:
-      OpenApiSpecUrl: https://raw.githubusercontent.com/EBLA-KW/Security-Copilot/refs/heads/main/Cortex-XDR-Azure-Function/API_Plugin_AzureFunction_Cortex_OAPI_2skills.yaml
+      OpenApiSpecUrl: https://raw.githubusercontent.com/EBLA-KW/Security-Copilot/refs/heads/main/Cortex-XDR-Azure-Function/2skills/API_Plugin_AzureFunction_Cortex_OAPI_2skills.yaml
