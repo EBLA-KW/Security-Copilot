@@ -1,0 +1,90 @@
+openapi: 3.0.0
+
+info:
+    title: "Fetch details from Cortex"
+    description: "The skills in this plugin will get different information from Cortex"
+    version: 1.0.0
+
+# This should point to the Azure Function URL
+servers:
+    - url: "https://ebla-cortex-omar.azurewebsites.net/api"
+
+paths:
+    /cortex_xdr_sami?code=k-5Cb3ZIeDcSk22ql06CrBFa1Xsbj4FYQA_Zn0v9Yv1hAzFulHAuXw%3D%3D&op=GetIncidents&data=1:
+        get:
+            operationId: GetIncidents
+            description: Get list of incidents
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                  incident_id:
+                                    type: string
+                                  severity:
+                                    type: string
+                                  status:
+                                    type: string
+                                  creation_time:
+                                    type: string
+                                    format: date-time
+
+    /cortex_xdr_sami?code=k-5Cb3ZIeDcSk22ql06CrBFa1Xsbj4FYQA_Zn0v9Yv1hAzFulHAuXw%3D%3D&op=GetIncidentExtraData&data={incident_id}:
+        get:
+            operationId: GetIncidentExtraData
+            description: Get extra data for a specific incident
+            parameters:
+                - name: data
+                  in: query
+                  required: true
+                  description: The "incident_id" to fetch extra data for (e.g., 2818).
+                  schema:
+                    type: string
+                    example: "2818"
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    incident:
+                                        type: object
+                                        properties:
+                                            incident_id:
+                                                type: string
+                                            is_blocked:
+                                                type: boolean
+                                            incident_name:
+                                                type: string
+                                                nullable: true
+                                            creation_time:
+                                                type: string
+                                                format: date-time
+                                            status:
+                                                type: string
+                                            severity:
+                                                type: string
+                                            modification_time:
+                                                type: string
+                                                format: date-time
+                                            detection_time:
+                                                type: string
+                                                nullable: true
+                                            alerts:
+                                                type: array
+                                                items:
+                                                    type: object
+                                                    properties:
+                                                        alert_id:
+                                                            type: string
+                                                        alert_status:
+                                                            type: string
+                                                        alert_severity:
+                                                            type: string
+                                                        alert_description:
+                                                            type: string
