@@ -7,7 +7,7 @@ info:
 
 # This should point to the Azure Function URL
 servers:
-    - url: "https://ebla-cortex-omar.azurewebsites.net/api"
+    - url: "https://[Azure-Function-Default-domain]/api"
 
 paths:
     /[Get-Function-URL]&op=GetIncidents&data=1:
