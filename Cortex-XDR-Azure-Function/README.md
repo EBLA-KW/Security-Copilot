@@ -47,6 +47,6 @@ Before using this integration, ensure the following are in place:
 
 Below is an example prompt that demonstrates how to request a detailed incident report:
 
-Based on the provided information in the previous prompt, could you please generate a detailed report about the incident? The report should include a description of the incident, an explanation of how it occurred, and details about the affected hosts. It should also propose a solution to resolve the issue and include relevant file names, hash values, and network information (e.g., IP addresses, ports, and domains). Additionally, provide the associated MITRE tactics and techniques for this incident.
+/FetchdetailsfromCortex Based on the provided information in the previous prompt, could you please generate a detailed report about the incident? The report should include a description of the incident, an explanation of how it occurred, and details about the affected hosts. It should also propose a solution to resolve the issue and include relevant file names, hash values, and network information (e.g., IP addresses, ports, and domains). Additionally, provide the associated MITRE tactics and techniques for this incident.
 
 ---
