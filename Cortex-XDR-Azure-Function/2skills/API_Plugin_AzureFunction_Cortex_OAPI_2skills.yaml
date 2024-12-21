@@ -7,10 +7,10 @@ info:
 
 # This should point to the Azure Function URL
 servers:
-    - url: "https://[Azure-Function-Default-domain]/api"
+    - url: "https://ebla-cortex-omar.azurewebsites.net/api"
 
 paths:
-    /[Get-Function-URL]&op=GetIncidents&data=1:
+    /cortex_xdr_sami?code=k-5Cb3ZIeDcSk22ql06CrBFa1Xsbj4FYQA_Zn0v9Yv1hAzFulHAuXw%3D%3D&op=GetIncidents&data=1:
         get:
             operationId: GetIncidents
             description: Get list of incidents
@@ -32,7 +32,7 @@ paths:
                                     type: string
                                     format: date-time
 
-    /[Get-Function-URL]&op=GetIncidentExtraData:
+    /cortex_xdr_sami?code=k-5Cb3ZIeDcSk22ql06CrBFa1Xsbj4FYQA_Zn0v9Yv1hAzFulHAuXw%3D%3D&op=GetIncidentExtraData:
         get:
             operationId: GetIncidentExtraData
             description: Get extra data for a specific incident
