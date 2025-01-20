@@ -1,0 +1,104 @@
+openapi: 3.0.0
+info:
+  title: FortiSIEM Incident API
+  description: API for retrieving incidents from FortiSIEM.
+  version: "v1"
+servers:
+  - url: https://<fortisietm-server>/phoenix/rest/pub
+paths:
+  /incident:
+    post:
+      operationId: getIncidents
+      summary: Get Incidents from FortiSIEM
+      description: Retrieve incidents from FortiSIEM with customizable filters and fields.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                filters:
+                  type: object
+                  properties:
+                    incidentId:
+                      type: array
+                      items:
+                        type: integer
+                      description: List of specific incident ids to filter by.
+                    incidentStatus:
+                      type: array
+                      items:
+                        type: integer
+                      enum: [0, 1, 2, 3]
+                      description: List of incident statuses to filter by (Active, Auto Cleared, Manually Cleared, System Cleared).
+                    eventSeverity:
+                      type: array
+                      items:
+                        type: integer
+                      description: List of event severity values (1-10) to filter by.
+                    eventSeverityCat:
+                      type: array
+                      items:
+                        type: string
+                        enum: [LOW, MEDIUM, HIGH]
+                      description: List of event severity categories to filter by.
+                    phIncidentCategory:
+                      type: array
+                      items:
+                        type: integer
+                      enum: [1, 2, 3, 4, 5]
+                      description: List of incident categories to filter by (Availability, Performance, Change, Security, Other).
+                    phCustId:
+                      type: array
+                      items:
+                        type: integer
+                      description: List of organization ids to filter by.
+                    incidentReso:
+                      type: array
+                      items:
+                        type: integer
+                      enum: [0, 1, 2, 3, 4]
+                      description: List of incident resolution statuses to filter by.
+                timeFrom:
+                  type: integer
+                  description: Epoch timestamp from which incidents should be retrieved.
+                timeTo:
+                  type: integer
+                  description: Epoch timestamp until which incidents should be retrieved.
+                start:
+                  type: integer
+                  default: 0
+                  description: Optional offset to start with, not needed if using queryId and page numbers.
+                size:
+                  type: integer
+                  default: 500
+                  description: Number of items to return per page of incidents.
+                orderBy:
+                  type: string
+                  description: Attribute to order incidents by (e.g., `incidentLastSeen`).
+                descending:
+                  type: boolean
+                  description: Specify if sort order is descending.
+                fields:
+                  type: array
+                  items:
+                    type: string
+                  description: Array of incident fields to return in the response.
+      responses:
+        "200":
+          description: A list of incidents matching the filter criteria.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  incidents:
+                    type: array
+                    items:
+                      type: object
+                      additionalProperties: true
+                      description: Incident object with various attributes.
+        "400":
+          description: Bad request, invalid parameters.
+        "500":
+          description: Server error.
