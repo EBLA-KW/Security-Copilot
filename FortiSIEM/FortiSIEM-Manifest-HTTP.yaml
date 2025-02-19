@@ -1,0 +1,21 @@
+Descriptor: 
+  Name: FortiSIEM Incident Retrieval
+  DisplayName: FortiSIEM Incident Lookup
+  Description: Retrieve and filter incident data from FortiSIEM with customizable parameters.
+  #Examples
+  #Can you show me all the active security incidents from FortiSIEM with high severity?
+  #Summarize incidents from FortiSIEM for the last 24 hours.
+  #List all incidents from FortiSIEM for organizations 2000 and 2001, ordered by the last seen date.
+  SupportedAuthTypes:
+    - ServiceHttp
+  Authorization:
+    Type: ServiceHttp
+    Key: <HeaderOrQueryParameterName>       # The name of the header or query parameter.
+    AuthScheme: <AuthScheme>                 # The authentication scheme (e.g., "Bearer"), prepended to the token.
+    Location: <Header or QueryParams>        # Where the key/token should be placed ("Header" or "QueryParams").
+    Value: <YourKeyOrToken>                  # The key or token value to use for authentication.
+
+SkillGroups:
+  - Format: API
+    Settings:
+      OpenApiSpecUrl: https://raw.githubusercontent.com/EBLA-KW/Security-Copilot/refs/heads/main/FortiSIEM/FortiSIEM-OpenAPI.yaml
